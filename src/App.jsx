@@ -33,6 +33,15 @@ function App() {
 		<div className="App">
 			<h1>Memory Game: Cards</h1>
 			<button onClick={shuffleCards}>Reset</button>
+
+			<div className="card-grid">
+				{cards.map((el) => (
+					<div className="card" key={el.id}>
+						<div className="card-back"></div>
+						<div className="card-front">{el.name}</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
