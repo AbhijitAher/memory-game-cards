@@ -18,6 +18,7 @@ function App() {
 	const [attempts, setAttempts] = useState(0);
 	const [choiceOne, setChoiceOne] = useState(null);
 	const [choiceTwo, setChoiceTwo] = useState(null);
+	const [cardDisabled, setCardDisabled] = useState(false);
 
 	useEffect(() => {
 		shuffleCards();
@@ -26,6 +27,7 @@ function App() {
 	// comparing two selected cards
 	useEffect(() => {
 		if (choiceOne && choiceTwo) {
+			setCardDisabled(true);
 			if (choiceOne.name === choiceTwo.name) {
 				setCards((prevCards) => {
 					return prevCards.map((card) => {
@@ -38,7 +40,9 @@ function App() {
 				});
 				resetChoices();
 			} else {
-				resetChoices();
+				setTimeout(() => {
+					resetChoices();
+				}, 1000);
 			}
 		}
 	}, [choiceOne, choiceTwo]);
@@ -51,6 +55,8 @@ function App() {
 			.sort(() => Math.random() - 0.5)
 			.map((card) => ({ ...card, id: Math.random() }));
 		console.log("shuffledCards:", shuffledCards);
+		setChoiceOne(null);
+		setChoiceTwo(null);
 		setCards(shuffledCards);
 		setAttempts(0);
 	};
@@ -58,7 +64,7 @@ function App() {
 	// function to handle choice
 	const handleChoice = (card) => {
 		choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
-		console.log(card);
+		// console.log(card);
 	};
 
 	// funciton to reset choices and increase attempts
@@ -66,6 +72,7 @@ function App() {
 		setChoiceOne(null);
 		setChoiceTwo(null);
 		setAttempts((prev) => prev + 1);
+		setCardDisabled(false);
 	};
 
 	return (
@@ -75,8 +82,14 @@ function App() {
 			<button onClick={shuffleCards}>Reset</button>
 
 			<div className="card-grid">
-				{cards.map((el) => (
-					<Card key={el.id} el={el} handleChoice={handleChoice} />
+				{cards.map((card) => (
+					<Card
+						key={card.id}
+						card={card}
+						handleChoice={handleChoice}
+						flipped={card === choiceOne || card === choiceTwo || card.matched}
+						cardDisabled={cardDisabled}
+					/>
 				))}
 			</div>
 		</div>

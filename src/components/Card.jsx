@@ -1,17 +1,21 @@
 import React from "react";
 import "./Card.css";
 
-export default function Card({ el, handleChoice }) {
+export default function Card({ card, handleChoice, flipped, cardDisabled }) {
 	// destructuring props
 
 	const handleClick = () => {
-		handleChoice(el);
+		if (!cardDisabled) {
+			handleChoice(card);
+		}
 	};
 
 	return (
 		<div className="card">
-			<div className="card-back" onClick={handleClick}></div>
-			<div className="card-front">{el.name}</div>
+			<div className={flipped ? "hide flex" : "flex"}>
+				<div className="card-back" onClick={handleClick}></div>
+				<div className="card-front">{card.name}</div>
+			</div>
 		</div>
 	);
 }
