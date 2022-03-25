@@ -3,23 +3,22 @@
 }
 
 .card-back {
-	background: #c942c9;
+	background-image: url(../../public/images/card-back-img.jpeg);
+	background-position: center;
 	width: 100%;
-	height: 20vh;
+	height: 18vh;
 	display: block;
 	border-radius: 10px;
-	border: 1px solid red;
 }
 
 .card-front {
-	padding: 2vh 0;
-	background: black;
-
+	padding: 5vh 0;
+	background: #150050;
 	width: 100%;
-	height: 16vh;
-	font-size: 5rem;
+	height: 8vh;
+	font-size: 6vh;
 	border-radius: 10px;
-	border: 1px solid white;
+	color: white;
 }
 
 .card .card-front {

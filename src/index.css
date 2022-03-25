@@ -1,17 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+* {
+	font-family: Courgette;
+}
 
 body {
 	margin: 0;
-	font-family: Lobster, sans-serif;
-	letter-spacing: 5px;
+	letter-spacing: 3px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: black;
-	color: rgb(201, 66, 201);
-	/* width: 80%; */
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
+	background-image: url(../public/images/background.webp);
+	color: #690d9b;
 }

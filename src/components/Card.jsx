@@ -3,7 +3,6 @@ import "./Card.css";
 
 export default function Card({ card, handleChoice, flipped, cardDisabled }) {
 	// destructuring props
-
 	const handleClick = () => {
 		if (!cardDisabled) {
 			handleChoice(card);

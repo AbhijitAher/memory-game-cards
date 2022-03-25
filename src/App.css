@@ -1,25 +1,52 @@
 .App {
 	text-align: center;
-	max-width: 80%;
+	max-width: 100%;
+	margin: auto 10%;
+}
+
+h1 {
+	font-size: 3.5vw;
+	margin: 10px;
+}
+
+.stats {
+	display: flex;
+	max-width: 90%;
+	align-items: flex-end;
+	flex-direction: row;
 	margin: auto;
 }
 
+.card-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	margin: 20px auto;
+	grid-gap: 10px;
+	max-width: 70%;
+}
+
 button {
-	background: none;
-	border: 1px solid white;
+	background: #3f0071;
+	border: 1px solid #7200cf;
+	width: 15%;
 	border-radius: 10px;
 	padding: 4px 8px;
 	color: white;
 }
 
 button:hover {
-	background: rgb(201, 66, 201);
+	background: #610094;
 	color: white;
 }
 
-.card-grid {
-	display: grid;
-	margin-top: 40px;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 20px;
+h2 {
+	float: left;
+	font-size: 2.5vw;
+	margin: auto;
+}
+
+button {
+	float: right;
+	font-size: 2vw;
+	margin: auto;
 }
